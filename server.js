@@ -31,34 +31,34 @@ app.get('/', (req, res) => {
     res.send('API Status: Running')
 });
 
-app.post('/api/email', (req, res) => {
-    console.log(req.body)
-    // sendGrid.setApiKey(API_key);
-    sendGrid.setApiKey(process.env.API_key);
-    const msg = {
-        to: 'wclarkcito@gmail.com',
-        from: 'wclarkcito@gmail.com',
-        subject: 'Website Contact',
-        text: `email sent from ${req.body.email}. message: ${req.body.message}`
-    }
-    sendGrid.send(msg)
-        .then(result => {
-            console.log(result)
+// app.post('/api/email', (req, res) => {
+//     console.log(req.body)
+//     // sendGrid.setApiKey(API_key);
+//     sendGrid.setApiKey(process.env.API_key);
+//     const msg = {
+//         to: 'wclarkcito@gmail.com',
+//         from: 'wclarkcito@gmail.com',
+//         subject: 'Website Contact',
+//         text: `email sent from ${req.body.email}. message: ${req.body.message}`
+//     }
+//     sendGrid.send(msg)
+//         .then(result => {
+//             console.log(result)
 
-            res.status(200).json({
-                success: true
-            })
+//             res.status(200).json({
+//                 success: true
+//             })
 
-        })
-        .catch(err => {
+//         })
+//         .catch(err => {
 
-            console.log('error:', err);
-            res.status(401).json({
-                success: false
-            });
+//             console.log('error:', err);
+//             res.status(401).json({
+//                 success: false
+//             });
 
-        })
-});
+//         })
+// });
 
 // app.listen(PORT, '0.0.0.0');
 app.listen(PORT, () => {
