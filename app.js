@@ -1,16 +1,22 @@
 require('dotenv').config()
 
 const express = require('express');
-const bodyParser = require('body-parser');
+// const bodyParser = require('body-parser');
 const cors = require('cors');
 
 const sendGrid = require('@sendGrid/mail');
 
 const app = express();
 
-app.use(bodyParser.json());
+const PORT = process.env.PORT || 3030;
+
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+// app.use(bodyParser.json());
 console.log(process.env.test_env)
-app.use(cors());
+app.use(cors({
+    options: ["http://localhost:3000/"]
+}));
 
 // app.use((req, res, next) => {
 //     res.setHeader('Access-Control-Allow-Origin', '*');
@@ -54,5 +60,4 @@ app.post('/api/email', (req, res) => {
         })
 });
 
-var PORT = process.env.PORT || 3030;
 app.listen(PORT, '0.0.0.0');
