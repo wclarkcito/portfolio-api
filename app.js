@@ -60,4 +60,7 @@ app.post('/api/email', (req, res) => {
         })
 });
 
-app.listen(PORT, '0.0.0.0');
+// app.listen(PORT, '0.0.0.0');
+app.listen(PORT, () => {
+    console.log(`App is listening to smooth sounds on port ${PORT}`);
+});
