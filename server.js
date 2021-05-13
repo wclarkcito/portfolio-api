@@ -4,7 +4,7 @@ const express = require('express');
 
 // const cors = require('cors');
 
-const sendGrid = require('@sendGrid/mail');
+const sendGrid = require('@sendgrid/mail');
 
 const app = express();
 
